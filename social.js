@@ -10,7 +10,7 @@ class SocialNetwork {
   addUser(name) {
     // Your code here
     this.currentID++;
-    
+
     const user = {
       id: this.currentID,
       name: name
@@ -32,11 +32,17 @@ class SocialNetwork {
   }
 
   follow(userID1, userID2) {
-    // Your code here
+    if(this.users[userID1] && this.users[userID2]) {
+      this.follows[userID1].add(userID2)
+      return true
+    }
+    return false
   }
 
   getFollows(userID) {
-    // Your code here
+    if(userID) {
+      return this.follows[userID]
+    }
   }
 
   getFollowers(userID) {
