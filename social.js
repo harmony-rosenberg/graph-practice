@@ -9,6 +9,17 @@ class SocialNetwork {
 
   addUser(name) {
     // Your code here
+    this.currentID++;
+    // this.name = name;
+    
+    const user = {
+      id: this.currentID,
+      name: name
+    };
+    this.users[this.currentID] = user;
+    // initialize an empty set for the new user's follow relationships:
+    
+    return user.id;
   }
 
   getUser(userID) {
