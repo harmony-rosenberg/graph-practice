@@ -10,20 +10,25 @@ class SocialNetwork {
   addUser(name) {
     // Your code here
     this.currentID++;
-    // this.name = name;
     
     const user = {
       id: this.currentID,
       name: name
     };
     this.users[this.currentID] = user;
-    // initialize an empty set for the new user's follow relationships:
-    
+    // // initialize an empty set for the new user's follow relationships:
+    this.follows[this.currentID] = new Set();
     return user.id;
   }
 
   getUser(userID) {
     // Your code here
+    // if (!userID) {
+    //   return null;
+    // } else {
+    //   return user.name;
+    // }
+    return this.users[userID] || null;
   }
 
   follow(userID1, userID2) {
