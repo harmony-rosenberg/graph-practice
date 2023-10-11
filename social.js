@@ -46,7 +46,22 @@ class SocialNetwork {
   }
 
   getFollowers(userID) {
-    // Your code here
+    let followers = new Set()
+    // // console.log(followers)
+
+    // if(userID) {
+    //   this.followers.add(this.follows)
+    // } else {
+    //   return new Set()
+    // }
+
+    // console.log(followers)
+    // return followers
+
+    if(userID in this.followers) return new Set(this.followers[userID])
+    return new Set()
+
+
   }
 
   getRecommendedFollows(userID, degrees) {
