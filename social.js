@@ -40,28 +40,20 @@ class SocialNetwork {
   }
 
   getFollows(userID) {
-    if(userID) {
       return this.follows[userID]
-    }
   }
 
   getFollowers(userID) {
     let followers = new Set()
-    // // console.log(followers)
 
-    // if(userID) {
-    //   this.followers.add(this.follows)
-    // } else {
-    //   return new Set()
-    // }
-
-    // console.log(followers)
-    // return followers
-
-    if(userID in this.followers) return new Set(this.followers[userID])
-    return new Set()
-
-
+    if(this.users[userID]) {
+    for(let el in this.follows) {
+      if(this.follows[el].has(userID)) {
+        followers.add(Number(el))
+      }
+    }
+  }
+    return followers
   }
 
   getRecommendedFollows(userID, degrees) {
