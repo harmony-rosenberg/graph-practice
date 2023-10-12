@@ -58,6 +58,22 @@ class SocialNetwork {
 
   getRecommendedFollows(userID, degrees) {
     // Your code here
+    let recommended = new Set();
+    let toVisit = [userID];
+    let visited = new Set();
+
+    while (toVisit.length) {
+      // let nextVisit = [];
+      let curr = toVisit.shift();
+      if (!visited.has(curr)) {
+      recommended.add(...this.follows[curr]);
+      visited.add(curr);
+      // console.log(recommended);
+
+      }
+    }
+
+
   }
 }
 
